@@ -9,6 +9,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 3 )
 
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.294118, 0.45098, 0.545098, 1 )
+
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 5, 5 )
 texture = ExtResource( 2 )
@@ -26,55 +31,13 @@ size_flags_vertical = 8
 custom_constants/separation = 6
 
 [node name="HB" type="HBoxContainer" parent="VB"]
-margin_right = 586.0
+margin_right = 594.0
 margin_bottom = 24.0
-custom_constants/separation = 16
+custom_constants/separation = 6
 alignment = 1
 
-[node name="SpriteWidth" type="HBoxContainer" parent="VB/HB"]
-margin_right = 145.0
-margin_bottom = 24.0
-custom_constants/separation = 8
-
-[node name="Label" type="Label" parent="VB/HB/SpriteWidth"]
-margin_right = 79.0
-margin_bottom = 24.0
-size_flags_vertical = 1
-text = "Sprite Width"
-valign = 1
-
-[node name="SpriteWidth" type="LineEdit" parent="VB/HB/SpriteWidth"]
-margin_left = 87.0
-margin_right = 145.0
-margin_bottom = 24.0
-max_length = 4
-placeholder_text = "pixels"
-placeholder_alpha = 0.5
-
-[node name="SpriteHeight" type="HBoxContainer" parent="VB/HB"]
-margin_left = 161.0
-margin_right = 310.0
-margin_bottom = 24.0
-custom_constants/separation = 8
-
-[node name="Label" type="Label" parent="VB/HB/SpriteHeight"]
-margin_right = 83.0
-margin_bottom = 24.0
-size_flags_vertical = 1
-text = "Sprite Height"
-valign = 1
-
-[node name="SpriteHeight" type="LineEdit" parent="VB/HB/SpriteHeight"]
-margin_left = 91.0
-margin_right = 149.0
-margin_bottom = 24.0
-max_length = 4
-placeholder_text = "pixels"
-placeholder_alpha = 0.5
-
 [node name="HFrames" type="HBoxContainer" parent="VB/HB"]
-margin_left = 326.0
-margin_right = 449.0
+margin_right = 139.0
 margin_bottom = 24.0
 custom_constants/separation = 8
 
@@ -85,17 +48,14 @@ size_flags_vertical = 1
 text = "HFrames"
 valign = 1
 
-[node name="HFrames" type="LineEdit" parent="VB/HB/HFrames"]
+[node name="HFrames" type="SpinBox" parent="VB/HB/HFrames"]
 margin_left = 65.0
-margin_right = 123.0
+margin_right = 139.0
 margin_bottom = 24.0
-text = "1"
-max_length = 2
-placeholder_alpha = 0.5
 
 [node name="VFrames" type="HBoxContainer" parent="VB/HB"]
-margin_left = 465.0
-margin_right = 586.0
+margin_left = 145.0
+margin_right = 282.0
 margin_bottom = 24.0
 custom_constants/separation = 8
 
@@ -106,24 +66,54 @@ size_flags_vertical = 1
 text = "VFrames"
 valign = 1
 
-[node name="VFrames" type="LineEdit" parent="VB/HB/VFrames"]
+[node name="VFrames" type="SpinBox" parent="VB/HB/VFrames"]
 margin_left = 63.0
-margin_right = 121.0
+margin_right = 137.0
 margin_bottom = 24.0
-text = "1"
-max_length = 2
-placeholder_alpha = 0.5
+
+[node name="FrameRange" type="HBoxContainer" parent="VB/HB"]
+margin_left = 288.0
+margin_right = 594.0
+margin_bottom = 24.0
+custom_constants/separation = 6
+
+[node name="Label" type="Label" parent="VB/HB/FrameRange"]
+margin_right = 73.0
+margin_bottom = 24.0
+size_flags_vertical = 1
+text = "Start Frame"
+align = 1
+valign = 1
+
+[node name="StartFrame" type="SpinBox" parent="VB/HB/FrameRange"]
+margin_left = 79.0
+margin_right = 153.0
+margin_bottom = 24.0
+
+[node name="Label2" type="Label" parent="VB/HB/FrameRange"]
+margin_left = 159.0
+margin_right = 226.0
+margin_bottom = 24.0
+size_flags_vertical = 1
+text = "End Frame"
+align = 1
+valign = 1
+
+[node name="EndFrame" type="SpinBox" parent="VB/HB/FrameRange"]
+margin_left = 232.0
+margin_right = 306.0
+margin_bottom = 24.0
 
 [node name="HB2" type="HBoxContainer" parent="VB"]
 margin_top = 30.0
-margin_right = 586.0
+margin_right = 594.0
 margin_bottom = 54.0
 custom_constants/separation = 16
 alignment = 1
 
 [node name="PreviewScale" type="HBoxContainer" parent="VB/HB2"]
-margin_left = 81.0
-margin_right = 234.0
+margin_left = 69.0
+margin_right = 238.0
 margin_bottom = 24.0
 custom_constants/separation = 8
 
@@ -134,17 +124,14 @@ size_flags_vertical = 1
 text = "Preview Scale"
 valign = 1
 
-[node name="PreviewScale" type="LineEdit" parent="VB/HB2/PreviewScale"]
+[node name="PreviewScale" type="SpinBox" parent="VB/HB2/PreviewScale"]
 margin_left = 95.0
-margin_right = 153.0
+margin_right = 169.0
 margin_bottom = 24.0
-text = "5"
-max_length = 2
-placeholder_alpha = 0.5
 
 [node name="BGColor" type="HBoxContainer" parent="VB/HB2"]
-margin_left = 250.0
-margin_right = 346.0
+margin_left = 254.0
+margin_right = 350.0
 margin_bottom = 24.0
 custom_constants/separation = 8
 
@@ -160,11 +147,11 @@ margin_left = 64.0
 margin_right = 96.0
 margin_bottom = 24.0
 rect_min_size = Vector2( 32, 24 )
-color = Color( 0.4, 0.529412, 0.607843, 1 )
+color = Color( 0.294118, 0.45098, 0.545098, 1 )
 
 [node name="AnimSpeed" type="HBoxContainer" parent="VB/HB2"]
-margin_left = 362.0
-margin_right = 505.0
+margin_left = 366.0
+margin_right = 525.0
 margin_bottom = 24.0
 custom_constants/separation = 8
 
@@ -175,80 +162,25 @@ size_flags_vertical = 1
 text = "Anim Speed"
 valign = 1
 
-[node name="AnimSpeed" type="LineEdit" parent="VB/HB2/AnimSpeed"]
+[node name="AnimSpeed" type="SpinBox" parent="VB/HB2/AnimSpeed"]
 margin_left = 85.0
-margin_right = 143.0
+margin_right = 159.0
 margin_bottom = 24.0
-text = "0.2"
-max_length = 6
-placeholder_alpha = 0.5
+step = 0.05
 
 [node name="SPACER1" type="HBoxContainer" parent="VB"]
 margin_top = 60.0
-margin_right = 586.0
+margin_right = 594.0
 margin_bottom = 60.0
 custom_constants/separation = 16
 alignment = 1
 
 [node name="SPACER2" type="HBoxContainer" parent="VB"]
 margin_top = 66.0
-margin_right = 586.0
+margin_right = 594.0
 margin_bottom = 66.0
 custom_constants/separation = 16
 alignment = 1
-
-[node name="HB3" type="HBoxContainer" parent="VB"]
-margin_top = 72.0
-margin_right = 586.0
-margin_bottom = 114.0
-custom_constants/separation = 16
-alignment = 1
-
-[node name="VB" type="VBoxContainer" parent="VB/HB3"]
-margin_left = 137.0
-margin_right = 449.0
-margin_bottom = 42.0
-
-[node name="Label" type="Label" parent="VB/HB3/VB"]
-margin_right = 312.0
-margin_bottom = 14.0
-size_flags_vertical = 1
-text = "Desired Frame Range"
-align = 1
-valign = 1
-
-[node name="FrameRange" type="HBoxContainer" parent="VB/HB3/VB"]
-margin_top = 18.0
-margin_right = 312.0
-margin_bottom = 42.0
-custom_constants/separation = 8
-
-[node name="Label" type="Label" parent="VB/HB3/VB/FrameRange"]
-margin_right = 73.0
-margin_bottom = 24.0
-size_flags_vertical = 1
-text = "Start Frame"
-align = 1
-valign = 1
-
-[node name="StartFrame" type="SpinBox" parent="VB/HB3/VB/FrameRange"]
-margin_left = 81.0
-margin_right = 155.0
-margin_bottom = 24.0
-
-[node name="Label2" type="Label" parent="VB/HB3/VB/FrameRange"]
-margin_left = 163.0
-margin_right = 230.0
-margin_bottom = 24.0
-size_flags_vertical = 1
-text = "End Frame"
-align = 1
-valign = 1
-
-[node name="EndFrame" type="SpinBox" parent="VB/HB3/VB/FrameRange"]
-margin_left = 238.0
-margin_right = 312.0
-margin_bottom = 24.0
 
 [node name="Label" type="Label" parent="."]
 anchor_right = 1.0
@@ -256,3 +188,11 @@ anchor_bottom = 1.0
 text = "NOTE: I made this for myself but decided to share. If you try to break it, that's on you!"
 align = 1
 valign = 2
+
+[connection signal="value_changed" from="VB/HB/HFrames/HFrames" to="Sprite" method="on_hframes_text_changed"]
+[connection signal="value_changed" from="VB/HB/VFrames/VFrames" to="Sprite" method="on_vframes_text_changed"]
+[connection signal="value_changed" from="VB/HB/FrameRange/StartFrame" to="Sprite" method="on_start_frame_value_changed"]
+[connection signal="value_changed" from="VB/HB/FrameRange/EndFrame" to="Sprite" method="on_end_frame_value_changed"]
+[connection signal="value_changed" from="VB/HB2/PreviewScale/PreviewScale" to="Sprite" method="on_preview_scale_text_changed"]
+[connection signal="color_changed" from="VB/HB2/BGColor/ColorPickerButton" to="." method="on_color_picker_color_changed"]
+[connection signal="value_changed" from="VB/HB2/AnimSpeed/AnimSpeed" to="Sprite" method="on_anim_speed_value_changed"]
