@@ -52,6 +52,8 @@ valign = 1
 margin_left = 65.0
 margin_right = 139.0
 margin_bottom = 24.0
+min_value = 1.0
+value = 1.0
 
 [node name="VFrames" type="HBoxContainer" parent="VB/HB"]
 margin_left = 145.0
@@ -70,6 +72,8 @@ valign = 1
 margin_left = 63.0
 margin_right = 137.0
 margin_bottom = 24.0
+min_value = 1.0
+value = 1.0
 
 [node name="FrameRange" type="HBoxContainer" parent="VB/HB"]
 margin_left = 288.0
