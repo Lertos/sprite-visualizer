@@ -42,16 +42,6 @@ func on_timeout():
 
 
 func insert_texture(new_texture: ImageTexture):
-	if current_axis_dir == AxisDir.HORIZONTAL:
-		var tex_height = new_texture.get_height()
-		var tex_width = new_texture.get_width()
-		var h_frames = round(tex_width / tex_height)
-		
-		vframes = 1
-		hframes = h_frames
-		end_frame = h_frames - 1
-		#TODO: Need to update the UI elements
-		
 	texture = new_texture
 
 
