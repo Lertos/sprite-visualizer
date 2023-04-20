@@ -31,6 +31,9 @@ func _ready():
 
 #Thanks to CarbsCode for this functions snippet!
 func handle_dropped_file(files: PoolStringArray, _screen: int):
+	#Hide the tutorial label if visible
+	$TutorialLabel.visible = false
+	
 	var dropped_image:Image = Image.new()
 	dropped_image.load(files[0])
 	
