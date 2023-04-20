@@ -171,6 +171,21 @@ margin_right = 159.0
 margin_bottom = 24.0
 step = 0.05
 
+[node name="HB3" type="HBoxContainer" parent="VB"]
+margin_top = 60.0
+margin_right = 594.0
+margin_bottom = 84.0
+custom_constants/separation = 16
+alignment = 1
+
+[node name="ReverseAnim" type="CheckBox" parent="VB/HB3"]
+margin_left = 173.0
+margin_right = 420.0
+margin_bottom = 24.0
+text = "Anims = START to FINISH to START"
+align = 1
+icon_align = 1
+
 [node name="Label" type="Label" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -185,3 +200,4 @@ valign = 2
 [connection signal="value_changed" from="VB/HB2/PreviewScale/PreviewScale" to="Sprite" method="on_preview_scale_text_changed"]
 [connection signal="color_changed" from="VB/HB2/BGColor/ColorPickerButton" to="." method="on_color_picker_color_changed"]
 [connection signal="value_changed" from="VB/HB2/AnimSpeed/AnimSpeed" to="Sprite" method="on_anim_speed_value_changed"]
+[connection signal="toggled" from="VB/HB3/ReverseAnim" to="Sprite" method="on_reverse_anim_toggled"]

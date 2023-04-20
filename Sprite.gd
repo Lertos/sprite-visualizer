@@ -3,6 +3,8 @@ extends Sprite
 var start_frame = 0
 var end_frame = 0
 var default_anim_speed = 0.2
+var reverse_anim_on_finish = false
+var anim_direction = 1
 
 var window_size
 var timer = Timer.new()
@@ -30,14 +32,35 @@ func on_window_resize():
 
 
 func on_timeout():
-	if (texture != null):
-		if (frame < end_frame):
+	if (texture == null):
+		return
+		
+	#If the user wants to see the anim go back and forth rather than traditional looping
+	if reverse_anim_on_finish:
+		#Forward motion
+		if anim_direction == 1:
+			if frame < end_frame:
+				frame = frame + 1
+			else:
+				frame = frame - 1
+				anim_direction = -1
+		#Backward motion
+		else:
+			if frame > start_frame:
+				frame = frame - 1
+			else:
+				frame = frame + 1
+				anim_direction = 1
+	#If the user wants to see the anim use traditional looping
+	else:
+		if frame < end_frame:
 			frame = frame + 1
 		else:
-			frame = start_frame
+			frame = 0
 
 
 func insert_texture(new_texture: ImageTexture):
+	frame = 0
 	texture = new_texture
 
 
@@ -68,3 +91,7 @@ func on_end_frame_value_changed(value):
 	if value >= 0 and value < hframes * vframes:
 		end_frame = value
 		frame = start_frame
+
+
+func on_reverse_anim_toggled(button_pressed):
+	reverse_anim_on_finish = button_pressed
