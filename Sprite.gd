@@ -4,10 +4,12 @@ enum AxisDir { VERTICAL, HORIZONTAL, BOTH }
 
 var start_frame = 0
 var end_frame = 0
-var anim_speed = 0.2
+var default_anim_speed = 0.2
 
 var window_size
 var current_axis_dir = AxisDir.HORIZONTAL
+
+var timer = Timer.new()
 
 
 func _ready():
@@ -18,10 +20,10 @@ func _ready():
 
 
 func start_anim_timer():
-	var timer = Timer.new()
+	timer = Timer.new()
 	
 	timer.connect("timeout", self, "on_timeout") 
-	timer.set_wait_time(anim_speed)
+	timer.set_wait_time(default_anim_speed)
 
 	add_child(timer)
 	timer.start()
@@ -67,7 +69,7 @@ func on_preview_scale_text_changed(new_text):
 
 
 func on_anim_speed_value_changed(value):
-	anim_speed = value
+	timer.set_wait_time(value)
 
 
 func on_start_frame_value_changed(value):

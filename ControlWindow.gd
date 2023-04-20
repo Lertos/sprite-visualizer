@@ -9,6 +9,7 @@ onready var cpb_bg_color = $VB/HB2/BGColor/ColorPickerButton
 onready var le_anim_speed = $VB/HB2/AnimSpeed/AnimSpeed
 
 var bg_color = Color("4b738b")
+var default_anim_speed = 0.2
 
 
 func _ready():
@@ -21,7 +22,9 @@ func _ready():
 	sb_end_frame.value = 0
 	le_preview_scale.value = 5
 	cpb_bg_color.color = bg_color
-	le_anim_speed.value = 0.2
+	le_anim_speed.value = default_anim_speed
+	
+	$Sprite.on_anim_speed_value_changed(default_anim_speed)
 
 	$ColorRect.color = bg_color
 
