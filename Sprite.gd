@@ -66,10 +66,18 @@ func insert_texture(new_texture: ImageTexture):
 
 func on_hframes_text_changed(new_text):
 	hframes = int(new_text)
+	reset_frames()
 
 
 func on_vframes_text_changed(new_text):
 	vframes = int(new_text)
+	reset_frames()
+
+
+func reset_frames():
+	start_frame = min(start_frame, (hframes * vframes) - 1)
+	end_frame = min(end_frame, (hframes * vframes) - 1)
+	frame = min(start_frame, (hframes * vframes) - 1)
 
 
 func on_preview_scale_text_changed(new_text):
