@@ -1,14 +1,10 @@
 extends Sprite
 
-enum AxisDir { VERTICAL, HORIZONTAL, BOTH }
-
 var start_frame = 0
 var end_frame = 0
 var default_anim_speed = 0.2
 
 var window_size
-var current_axis_dir = AxisDir.HORIZONTAL
-
 var timer = Timer.new()
 
 
