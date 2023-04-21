@@ -56,7 +56,7 @@ func on_timeout():
 		if frame < end_frame:
 			frame = frame + 1
 		else:
-			frame = 0
+			frame = start_frame
 
 
 func insert_texture(new_texture: ImageTexture):
